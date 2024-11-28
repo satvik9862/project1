@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search bar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="search">
+        <div class="dropdown">
+            <div class="btn" onclick="toggleonclick()">
+                <span id="dropdown-btn">Everything</span>
+                <i class="dropdown-icon">&#x25BC;</i>
+        </div>
+        <div class="drop-content" id="dropdown-content">
+            <ul class="list">
+                <li onclick="updatePlaceholder('Everything')">Everything</li>
+                <li onclick="updatePlaceholder('Software Development')">Software Development</li>
+                <li onclick="updatePlaceholder('Web Development')">Web Development</li>
+                <li onclick="updatePlaceholder('Data Analyst')">Data Analyst</li>
+                <li onclick="updatePlaceholder('IT Consultant')">IT Consultant</li>
+                <li onclick="updatePlaceholder('Network Administrator')">Network Administrator</li>
+
+            </ul>
+        </div>
+        </div>
+        <input type="text" id="search-b" class="inp" placeholder="Search">
+        <button class="search-btn">&#128269;</button>
+    </div>
+    </div>
+
+      <script>
+        function updatePlaceholder(category){
+            search=document.getElementById('search-b');
+            search.placeholder=`Search in ${category}`;
+
+            dropdown=document.getElementById('dropdown-btn');
+            dropdown.textContent=category;
+
+            dropdowncontent=document.getElementById('dropdown-content');
+            dropdowncontent.classList.toggle('show');
+        }
+        function toggleonclick(){
+            dropdowncontent=document.getElementById('dropdown-content');
+            dropdowncontent.classList.toggle('show');
+        }
+      </script>
+</body>
+</html>
